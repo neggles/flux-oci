@@ -555,7 +555,7 @@ securityContext:
 podSecurityPolicy:
   # podSecurityPolicy.create -- Enable pod security policy.
   ## ref: https://kubernetes.io/docs/concepts/policy/pod-security-policy/
-  create: true
+  create: false
 
 cert-manager:
   # cert-manager.enabled -- Install cert-manager together.
