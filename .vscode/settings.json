@@ -1,0 +1,12 @@
+{
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+
+    "yaml.completion": true,
+    "yaml.schemaStore.enable": true,
+    "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+    "[yaml]": {
+        "editor.tabSize": 2
+    }
+}
