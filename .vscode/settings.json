@@ -8,5 +8,9 @@
     "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
     "[yaml]": {
         "editor.tabSize": 2
+    },
+
+    "files.associations": {
+        ".sourceignore": "gitignore"
     }
 }
