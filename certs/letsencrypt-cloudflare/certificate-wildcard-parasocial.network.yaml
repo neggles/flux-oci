@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert-letsencrypt-cloudflare-parasocial.network
+  namespace: cert-letsencrypt-cloudflare
+spec:
+  # secretName doesn't have to match the certificate name, but it may as well, for simplicity!
+  secretName: cert-letsencrypt-cloudflare-parasocial.network
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - "parasocial.network"
+    - "*.parasocial.network"
