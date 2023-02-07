@@ -31,8 +31,6 @@ fi
 # actually seal the secret lol
 kubectl create secret generic ${secret_name} \
     --namespace ${secret_namespace} \
-    --from-literal=${secret_data} \
-    -o json |
-    kubeseal --cert ${pubkey_file} |
-    kubectl create -f - \
+    --from-literal=${secret_data} -o json |
+    kubeseal --cert ${pubkey_file} -o yaml \
         > "${namespace_dir}/sealedsecret-${secret_name}.yaml"
