@@ -412,7 +412,7 @@ controller:
 
   podDisruptionBudget:
     # controller.podDisruptionBudget.enabled -- Specify podDisruptionBudget enabled.
-    enabled: true
+    enabled: false
 
 resources:
   # resources.topolvm_node -- Specify resources.
