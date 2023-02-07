@@ -12,7 +12,7 @@ spec:
   prune: true # remove stale resources from cluster
   force: false # enable this to recreate resources on immutable fields changes
 
-  path: services/podinfo
+  path: ./services/podinfo
   sourceRef:
     kind: GitRepository
     name: flux-system
