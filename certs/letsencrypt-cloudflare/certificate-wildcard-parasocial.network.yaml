@@ -3,10 +3,6 @@ kind: Certificate
 metadata:
   name: cert-letsencrypt-cloudflare-parasocial.network
   namespace: cert-letsencrypt-cloudflare
-  annotations:
-    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik"
-    reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "traefik"
 spec:
   secretName: cert-letsencrypt-cloudflare-parasocial.network
   issuerRef:
@@ -15,3 +11,7 @@ spec:
   dnsNames:
     - "parasocial.network"
     - "*.parasocial.network"
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik"
+    reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "traefik"
