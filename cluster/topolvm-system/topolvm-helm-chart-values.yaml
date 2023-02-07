@@ -36,7 +36,7 @@ image:
 # A scheduler extender for TopoLVM
 scheduler:
   # scheduler.enabled --  If true, enable scheduler extender for TopoLVM
-  enabled: true
+  enabled: false
 
   # scheduler.args -- Arguments to be passed to the command.
   args: []
@@ -92,11 +92,6 @@ scheduler:
     - key: CriticalAddonsOnly
       operator: Exists
     - key: node-role.kubernetes.io/control-plane
-      effect: NoSchedule
-    # node-role.kubernetes.io/master taint will not be used in k8s 1.25+.
-    # cf. https://github.com/kubernetes/enhancements/blob/master/keps/sig-cluster-lifecycle/kubeadm/2067-rename-master-label-taint/README.md
-    # TODO: remove this when minimum supported version becomes 1.25.
-    - key: node-role.kubernetes.io/master
       effect: NoSchedule
 
   # scheduler.nodeSelector -- Specify nodeSelector on the Deployment or DaemonSet.
@@ -326,7 +321,7 @@ controller:
 
   storageCapacityTracking:
     # controller.storageCapacityTracking.enabled -- Enable Storage Capacity Tracking for csi-provisoner.
-    enabled: false
+    enabled: true
 
   securityContext:
     # controller.securityContext.enabled -- Enable securityContext.
@@ -534,7 +529,7 @@ webhook:
     # name: webhook-issuer
   podMutatingWebhook:
     # webhook.podMutatingWebhook.enabled -- Enable Pod MutatingWebhook.
-    enabled: true
+    enabled: false
   pvcMutatingWebhook:
     # webhook.pvcMutatingWebhook.enabled -- Enable PVC MutatingWebhook.
     enabled: true
