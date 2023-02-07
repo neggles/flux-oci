@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta2
+kind: Kustomization
+resources:
+  - helmrelease-reflector.yaml
+configMapGenerator:
+  - name: reflector-helm-chart-values
+    namespace: reflector
+    files:
+      - values.yaml=reflector-helm-chart-values.yaml
+configurations:
+  - kustomizeconfig.yaml
