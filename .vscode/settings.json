@@ -11,6 +11,6 @@
     },
 
     "files.associations": {
-        ".sourceignore": "gitignore"
+        ".sourceignore": "ignore"
     }
 }

@@ -1,5 +1,13 @@
 # Flux source ignore
 # https://fluxcd.io/flux/components/source/gitrepositories/#excluding-files
 
-.vscode/
-.gitkeep
+# exclude all
+/*
+
+# specifically exclude .vscode
+/.vscode/
+
+# include cluster, bootstrap, services dirs
+!/cluster
+!/bootstrap
+!/services
