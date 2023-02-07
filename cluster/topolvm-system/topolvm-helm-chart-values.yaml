@@ -89,7 +89,7 @@ scheduler:
 
   podDisruptionBudget:
     # scheduler.podDisruptionBudget.enabled -- Specify podDisruptionBudget enabled.
-    enabled: true
+    enabled: false
 
   # scheduler.tolerations -- Specify tolerations on the Deployment or DaemonSet.
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
