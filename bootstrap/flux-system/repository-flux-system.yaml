@@ -12,8 +12,3 @@ spec:
   secretRef:
     name: flux-system
   timeout: 60s
-  ignore: |
-    .vscode/
-    .github/
-    .sops.yaml
-    .gitlab-ci.yml

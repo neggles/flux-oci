@@ -1,0 +1,4 @@
+# Flux source ignore
+# https://fluxcd.io/flux/components/source/gitrepositories/#excluding-files
+
+.vscode/
