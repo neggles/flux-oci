@@ -9,7 +9,8 @@
 /archive
 
 # include cluster, bootstrap, services dirs
-!/cluster
 !/bootstrap
-!/services
 !/certs
+!/cluster
+!/common
+!/services

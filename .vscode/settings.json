@@ -16,7 +16,22 @@
 
     "material-icon-theme.folders.associations": {
         "bootstrap": "global",
+        "flux-system": "ci",
+        "gitrepositories": "git",
+        "helmrepositories": "packages",
+        "kustomizations": "kubernetes",
+        "namespaces": "context",
+
         "cluster": "kubernetes",
+        "cert-manager": "secure",
+        "external-dns": "environment",
+        "reflector": "middleware",
+        "sealed-secrets": "keys",
+        "traefik": "routes",
+        "topolvm-system": "server",
+
+        "common": "base",
+
         "services": "app"
     }
 }
