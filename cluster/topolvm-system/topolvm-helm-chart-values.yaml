@@ -385,17 +385,19 @@ controller:
   affinity:
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
-        - labelSelector:
-            matchExpressions:
-              - key: app.kubernetes.io/component
-                operator: In
-                values:
-                  - controller
-              - key: app.kubernetes.io/name
-                operator: In
-                values:
-                  - topolvm
-          topologyKey: kubernetes.io/hostname
+        - weight: 100
+          podAffinityTerm:
+            labelSelector:
+              matchExpressions:
+                - key: app.kubernetes.io/component
+                  operator: In
+                  values:
+                    - controller
+                - key: app.kubernetes.io/name
+                  operator: In
+                  values:
+                    - topolvm
+            topologyKey: kubernetes.io/hostname
 
   # controller.tolerations -- Specify tolerations.
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/
