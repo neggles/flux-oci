@@ -4,8 +4,9 @@
 # exclude all
 /*
 
-# specifically exclude .vscode
-/.vscode/
+# specifically exclude .vscode and archive
+/.vscode
+/archive
 
 # include cluster, bootstrap, services dirs
 !/cluster

@@ -12,5 +12,11 @@
 
     "files.associations": {
         ".sourceignore": "ignore"
+    },
+
+    "material-icon-theme.folders.associations": {
+        "bootstrap": "global",
+        "cluster": "kubernetes",
+        "services": "app"
     }
 }
