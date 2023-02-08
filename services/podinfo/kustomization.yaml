@@ -7,6 +7,5 @@ resources:
 configMapGenerator:
   - name: podinfo-helm-chart-values
     namespace: podinfo
-    behavior: merge
     files:
       - values.yaml=podinfo-helm-chart-values.yaml
