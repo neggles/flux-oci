@@ -382,7 +382,7 @@ controller:
 
   # controller.affinity -- Specify affinity.
   ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
-  affinity: |
+  affinity:
     podAntiAffinity:
       preferredDuringSchedulingIgnoredDuringExecution:
         - labelSelector:
@@ -394,7 +394,7 @@ controller:
               - key: app.kubernetes.io/name
                 operator: In
                 values:
-                  - { { include "topolvm.name" . } }
+                  - topolvm
           topologyKey: kubernetes.io/hostname
 
   # controller.tolerations -- Specify tolerations.
