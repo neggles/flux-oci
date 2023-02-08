@@ -111,10 +111,10 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - secretName: cert-letsencrypt-cloudflare-owoci.neggles.dev
+      hosts:
+        - podinfo.owoci.neggles.dev
 
 linkerd:
   profile:
