@@ -12,6 +12,8 @@ spec:
       - selector:
           dnsZones:
             - "parasocial.network"
+            - "neggles.dev"
+            - "neggl.es"
         dns01:
           cloudflare:
             apiTokenSecretRef:
