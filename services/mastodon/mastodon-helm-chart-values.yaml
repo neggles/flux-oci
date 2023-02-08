@@ -225,6 +225,13 @@ elasticsearch:
   # @ignored
   image:
     tag: 7
+  master:
+    persistence:
+      size: 6Gi
+  data:
+    replicaCount: 1
+    persistence:
+      size: 6Gi
 
 # https://github.com/bitnami/charts/tree/master/bitnami/postgresql#parameters
 postgresql:
@@ -247,6 +254,9 @@ postgresql:
     # you can also specify the name of an existing Secret
     # with a key of password set to the password you want
     existingSecret: "mastodon-postgres-password"
+    primary:
+      persistence:
+        size: 1Gi
 
 # https://github.com/bitnami/charts/tree/master/bitnami/redis#parameters
 redis:
@@ -262,6 +272,10 @@ redis:
   # with a key of redis-password set to the password you want
   # auth:
   existingSecret: "mastodon-redis-password"
+  master:
+    persistence:
+      size: 1Gi
+  architecture: standalone
 
 # @ignored
 service:
