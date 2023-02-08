@@ -53,7 +53,7 @@ mastodon:
       accessMode: ReadWriteOnce
       resources:
         requests:
-          storage: 16Gi
+          storage: 8Gi
   s3:
     enabled: true
     access_key: ""
@@ -226,11 +226,11 @@ elasticsearch:
     tag: 7
   master:
     persistence:
-      size: 6Gi
+      size: 4Gi
   data:
     replicaCount: 1
     persistence:
-      size: 6Gi
+      size: 4Gi
 
 # https://github.com/bitnami/charts/tree/master/bitnami/postgresql#parameters
 postgresql:
