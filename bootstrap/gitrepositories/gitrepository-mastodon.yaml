@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1h0s
   ref:
-    branch: main
-  url: https://github.com/mastodon/chart
+    branch: deploy
+  url: https://github.com/neggles/mastodon-chart
