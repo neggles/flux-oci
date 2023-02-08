@@ -10,7 +10,7 @@ spec:
       chart: mastodon
       version: 4.x
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: mastodon
         namespace: flux-system
   interval: 10m
