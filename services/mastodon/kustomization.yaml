@@ -1,0 +1,18 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: mastodon
+resources:
+  - ../../common
+  - helmrelease-mastodon.yaml
+  - mastodon-traefik-middleware.yaml
+  - sealedsecret-mastodon-postgres-password.yaml
+  - sealedsecret-mastodon-redis-password.yaml
+  - sealedsecret-mastodon-s3-api-key.yaml
+  - sealedsecret-mastodon-secrets.yaml
+  - sealedsecret-mastodon-sendgrid-api-key.yaml
+configMapGenerator:
+  - name: mastodon-helm-chart-values
+    namespace: mastodon
+    files:
+      - values.yaml=mastodon-helm-chart-values.yaml

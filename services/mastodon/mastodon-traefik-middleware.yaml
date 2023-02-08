@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: buffering
+  namespace: mastodon
+spec:
+  buffering:
+    maxRequestBodyBytes: 41943040
+    memRequestBodyBytes: 4194304
+    retryExpression: IsNetworkError() && Attempts() <= 2
