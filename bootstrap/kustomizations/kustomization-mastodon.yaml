@@ -1,0 +1,32 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: mastodon
+  namespace: flux-system
+spec:
+  interval: 10m0s # detect drift and undo kubectl edits every 10m
+  wait: true # wait for all applied resources to become ready
+  timeout: 3m0s # give up waiting after three minutes
+  retryInterval: 2m0s # retry every two minutes on apply or waiting failures
+  prune: true # remove stale resources from cluster
+  force: false # enable this to recreate resources on immutable fields changes
+
+  path: services/mastodon
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-web
+      namespace: mastodon
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-streaming
+      namespace: mastodon
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-sidekiq
+      namespace: mastodon
