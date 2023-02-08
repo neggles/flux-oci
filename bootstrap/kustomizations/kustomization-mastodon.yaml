@@ -4,6 +4,7 @@ kind: Kustomization
 metadata:
   name: mastodon
   namespace: flux-system
+  creationTimestamp: null
 spec:
   interval: 10m0s # detect drift and undo kubectl edits every 10m
   wait: true # wait for all applied resources to become ready
