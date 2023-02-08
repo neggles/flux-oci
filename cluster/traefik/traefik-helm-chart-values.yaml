@@ -671,11 +671,10 @@ tlsOptions: {}
 # TLS Store are created as TLSStore CRDs. This is useful if you want to set a default certificate
 # https://doc.traefik.io/traefik/https/tls/#default-certificate
 # Example:
-# tlsStore:
-#   default:
-#     defaultCertificate:
-#       secretName: tls-cert
-tlsStore: {}
+tlsStore:
+  default:
+    defaultCertificate:
+      secretName: cert-wildcard-owoci.neggles.dev
 
 # Options for the main traefik service, where the entrypoints traffic comes
 # from.
@@ -731,7 +730,7 @@ service:
 autoscaling:
   enabled: false
 #   minReplicas: 1
-#   maxReplicas: 10
+#   maxReplicas: 3
 #   metrics:
 #   - type: Resource
 #     resource:
