@@ -4,7 +4,7 @@ metadata:
   name: cert-letsencrypt-cloudflare-parasocial.network-staging
   namespace: cert-letsencrypt-cloudflare
 spec:
-  secretName: cert-letsencrypt-cloudflare-parasocial.network-staging
+  secretName: cert-wildcard-parasocial.network-staging
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
@@ -14,4 +14,4 @@ spec:
   secretTemplate:
     annotations:
       reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
-      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "traefik"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: ""
