@@ -2,11 +2,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - ../../common
   - helmrelease-sealed-secrets.yaml
 configMapGenerator:
   - name: sealed-secrets-helm-chart-values
     namespace: sealed-secrets
     files:
       - values.yaml=sealed-secrets-helm-chart-values.yaml
-configurations:
-  - kustomizeconfig.yaml
