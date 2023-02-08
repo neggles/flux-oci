@@ -53,7 +53,7 @@ mastodon:
       accessMode: ReadWriteOnce
       resources:
         requests:
-          storage: 2Gi
+          storage: 16Gi
   s3:
     enabled: true
     access_key: ""
