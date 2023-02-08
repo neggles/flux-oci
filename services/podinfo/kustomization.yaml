@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - ../../common
   - helmrelease-podinfo.yaml
-  - cert-wildcard-owoci.neggles.dev.yaml
 configMapGenerator:
   - name: podinfo-helm-chart-values
     namespace: podinfo

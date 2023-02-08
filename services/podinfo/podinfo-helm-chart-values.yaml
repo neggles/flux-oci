@@ -107,7 +107,8 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    - secretName: cert-letsencrypt-prod-podinfo.owoci.neggles.dev
+    - secretName: cert-podinfo.owoci.neggles.dev
+      namespace: traefik
       hosts:
         - podinfo.owoci.neggles.dev
 
