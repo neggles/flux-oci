@@ -253,9 +253,9 @@ postgresql:
     # you can also specify the name of an existing Secret
     # with a key of password set to the password you want
     existingSecret: "mastodon-postgres-password"
-    primary:
-      persistence:
-        size: 1Gi
+  primary:
+    persistence:
+      size: 2Gi
 
 # https://github.com/bitnami/charts/tree/master/bitnami/redis#parameters
 redis:
