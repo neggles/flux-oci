@@ -130,21 +130,19 @@ mastodon:
     #  queues:
     #    - default
   smtp:
-    auth_method: plain
-    ca_file: /etc/ssl/certs/ca-certificates.crt
     delivery_method: smtp
-    domain: smtp.sendgrid.net
-    enable_starttls: "auto"
-    from_address: uwu@parasocial.network
-    openssl_verify_mode: peer
+
+    domain: sendgrid.net
+    server: smtp.sendgrid.net
     port: 587
-    reply_to: uwu@parasocial.network
-    server: smtp.mailgun.org
-    tls: false
-    login:
-    password:
-    # -- you can also specify the name of an existing Secret
-    # with the keys login and password
+    enable_starttls: "auto"
+
+    from_address: "parasocial.network <uwu@parasocial.network>"
+    reply_to:
+    ca_file: /etc/ssl/certs/ca-certificates.crt
+    openssl_verify_mode: peer
+
+    auth_method: login
     existingSecret: mastodon-sendgrid-api-key
   streaming:
     port: 4000
