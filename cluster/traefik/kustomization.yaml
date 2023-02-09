@@ -5,6 +5,7 @@ namespace: traefik
 resources:
   - ../../common
   - helmrelease-traefik.yaml
+  - http-middleware-hsts.yaml
 configMapGenerator:
   - name: helm-chart-values-traefik
     files:
