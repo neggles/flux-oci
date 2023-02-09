@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cert-dashboard.owoci.neggles.dev
+spec:
+  secretName: kubernetes-dashboard-certs
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - "dashboard.owoci.neggles.dev"
+  secretTemplate:
+    annotations: {}
