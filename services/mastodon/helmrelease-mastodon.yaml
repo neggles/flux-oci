@@ -18,5 +18,5 @@ spec:
   releaseName: mastodon
   valuesFrom:
     - kind: ConfigMap
-      name: mastodon-helm-chart-values
+      name: helm-chart-values-mastodon
       valuesKey: values.yaml

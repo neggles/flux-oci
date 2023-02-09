@@ -17,5 +17,5 @@ spec:
   releaseName: metallb
   valuesFrom:
     - kind: ConfigMap
-      name: metallb-helm-chart-values
+      name: helm-chart-values-metallb
       valuesKey: values.yaml

@@ -17,5 +17,5 @@ spec:
   releaseName: traefik
   valuesFrom:
     - kind: ConfigMap
-      name: traefik-helm-chart-values
+      name: helm-chart-values-traefik
       valuesKey: values.yaml

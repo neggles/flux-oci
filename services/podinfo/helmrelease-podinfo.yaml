@@ -3,7 +3,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: podinfo
-  namespace: podinfo
 spec:
   chart:
     spec:
@@ -18,5 +17,5 @@ spec:
   releaseName: podinfo
   valuesFrom:
     - kind: ConfigMap
-      name: podinfo-helm-chart-values
+      name: helm-chart-values-podinfo
       valuesKey: values.yaml

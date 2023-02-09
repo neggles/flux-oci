@@ -12,7 +12,6 @@ resources:
   - sealedsecret-mastodon-secrets.yaml
   - sealedsecret-mastodon-sendgrid-api-key.yaml
 configMapGenerator:
-  - name: mastodon-helm-chart-values
-    namespace: mastodon
+  - name: helm-chart-values-mastodon
     files:
-      - values.yaml=mastodon-helm-chart-values.yaml
+      - values.yaml=helm-chart-values-mastodon.yaml

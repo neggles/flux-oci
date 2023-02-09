@@ -1,12 +1,12 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: metallb-system
 resources:
   - helmrelease-metallb.yaml
 configMapGenerator:
-  - name: metallb-helm-chart-values
-    namespace: metallb-system
+  - name: helm-chart-values-metallb
     files:
-      - values.yaml=metallb-helm-chart-values.yaml
+      - values.yaml=helm-chart-values-metallb.yaml
 configurations:
   - kustomizeconfig.yaml

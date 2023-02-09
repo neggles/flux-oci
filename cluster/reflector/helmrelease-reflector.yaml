@@ -17,5 +17,5 @@ spec:
   releaseName: reflector
   valuesFrom:
     - kind: ConfigMap
-      name: reflector-helm-chart-values
+      name: helm-chart-values-reflector
       valuesKey: values.yaml

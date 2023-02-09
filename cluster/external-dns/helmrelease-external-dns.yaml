@@ -17,5 +17,5 @@ spec:
   releaseName: external-dns
   valuesFrom:
     - kind: ConfigMap
-      name: external-dns-helm-chart-values
+      name: helm-chart-values-external-dns
       valuesKey: values.yaml # This is the default, but best to be explicit for clarity

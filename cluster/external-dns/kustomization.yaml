@@ -1,11 +1,11 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namespace: external-dns
 resources:
   - ../../common
   - helmrelease-external-dns.yaml
 configMapGenerator:
-  - name: external-dns-helm-chart-values
-    namespace: external-dns
+  - name: helm-chart-values-external-dns
     files:
-      - values.yaml=external-dns-helm-chart-values.yaml
+      - values.yaml=helm-chart-values-external-dns.yaml

@@ -17,5 +17,5 @@ spec:
   releaseName: topolvm
   valuesFrom:
     - kind: ConfigMap
-      name: topolvm-helm-chart-values
+      name: helm-chart-values-topolvm
       valuesKey: values.yaml

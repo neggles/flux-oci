@@ -17,5 +17,5 @@ spec:
   releaseName: cert-manager
   valuesFrom:
     - kind: ConfigMap
-      name: cert-manager-helm-chart-values
+      name: helm-chart-values-cert-manager
       valuesKey: values.yaml
