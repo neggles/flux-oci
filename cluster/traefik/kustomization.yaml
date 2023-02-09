@@ -6,6 +6,7 @@ resources:
   - ../../common
   - helmrelease-traefik.yaml
   - http-middleware-hsts.yaml
+  - http-middleware-cf-whitelist.yaml
 configMapGenerator:
   - name: helm-chart-values-traefik
     files:
