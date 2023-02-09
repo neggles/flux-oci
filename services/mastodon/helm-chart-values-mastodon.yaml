@@ -233,10 +233,21 @@ elasticsearch:
     tag: 11-debian-11
 
   master:
+    replicaCount: 3
     persistence:
       size: 4Gi
+
+  coordinating:
+    enabled: false
+    replicaCount: 2
+
+  ingest:
+    enabled: false
+    replicaCount: 2
+
   data:
-    replicaCount: 1
+    enabled: false
+    replicaCount: 2
     persistence:
       size: 4Gi
 
