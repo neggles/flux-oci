@@ -239,15 +239,15 @@ elasticsearch:
 
   coordinating:
     enabled: false
-    replicaCount: 2
+    replicaCount: 0
 
   ingest:
     enabled: false
-    replicaCount: 2
+    replicaCount: 0
 
   data:
     enabled: false
-    replicaCount: 2
+    replicaCount: 0
     persistence:
       size: 4Gi
 
