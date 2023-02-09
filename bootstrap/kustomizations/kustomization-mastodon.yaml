@@ -29,5 +29,5 @@ spec:
       namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
-      name: mastodon-sidekiq
+      name: mastodon-sidekiq-all-queues
       namespace: mastodon
