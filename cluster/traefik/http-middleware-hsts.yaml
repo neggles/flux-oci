@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: hsts-override
+  namespace: traefik
+spec:
+  headers:
+    stsIncludeSubdomains: false
+    stsPreload: false
+    stsSeconds: 31536000
+    customResponseHeaders:
+      Strict-Transport-Security: "max-age=31536000"
