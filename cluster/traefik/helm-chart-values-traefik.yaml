@@ -237,7 +237,7 @@ logs:
     level: ERROR
   access:
     # To enable access logs
-    enabled: false
+    enabled: true
     ## By default, logs are written using the Common Log Format (CLF) on stdout.
     ## To write logs in JSON, use json in the format option.
     ## If the given format is unsupported, the default (CLF) is used instead.
@@ -265,7 +265,11 @@ logs:
       headers:
         defaultmode: drop
         names:
-          {}
+          X-Forwarded-For: keep
+          X-Forwarded-Host: keep
+          X-Forwarded-Proto: keep
+          X-Real-Ip: keep
+          CF-Connecting-IP: keep
           ## Examples:
           # User-Agent: redact
           # Authorization: drop
