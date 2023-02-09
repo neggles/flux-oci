@@ -677,7 +677,6 @@ ports:
     #   - namespace-name2@kubernetescrd
     middlewares:
       - traefik-hsts-override@kubernetescrd
-      - traefik-cf-whitelist@kubernetescrd
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:
     # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
