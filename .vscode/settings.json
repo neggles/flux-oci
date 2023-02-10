@@ -6,6 +6,7 @@
     "yaml.completion": true,
     "yaml.schemaStore.enable": true,
     "yaml.schemaStore.url": "https://www.schemastore.org/api/json/catalog.json",
+
     "[yaml]": {
         "editor.tabSize": 2
     },
@@ -21,6 +22,7 @@
         "helmrepositories": "packages",
         "kustomizations": "kubernetes",
         "namespaces": "context",
+        "notifications": "messages",
 
         "cluster": "kubernetes",
         "cert-manager": "secure",
