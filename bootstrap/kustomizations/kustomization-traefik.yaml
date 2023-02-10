@@ -21,3 +21,7 @@ spec:
       kind: Deployment
       name: traefik
       namespace: traefik
+
+  components:
+    - ../../components/ipwhitelist
+    - ../../components/cloudflare
