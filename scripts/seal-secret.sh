@@ -29,8 +29,15 @@ else
 fi
 
 # actually seal the secret lol
+echo "Sealing secret ${secret_name} in namespace ${secret_namespace}..."
 kubectl create secret generic ${secret_name} \
-    --namespace ${secret_namespace} \
-    --from-literal=${secret_data} -o json |
-    kubeseal --cert ${pubkey_file} -o yaml \
-        > "${namespace_dir}/sealedsecret-${secret_name}.yaml"
+    --namespace "${secret_namespace}" \
+    --from-literal="${secret_data}" -o yaml |
+    kubeseal --cert "${pubkey_file}" -o yaml -w "${namespace_dir}/sealedsecret-${secret_name}.yaml"
+
+echo "Sealed secret ${secret_name} to ${namespace_dir}/sealedsecret-${secret_name}.yaml"
+# then delete the secret from the cluster
+kubectl delete secret "${secret_name}" --namespace "${secret_namespace}" --ignore-not-found
+
+echo "Deleted temporary secret ${secret_name} in namespace ${secret_namespace}"
+echo "Done!"
