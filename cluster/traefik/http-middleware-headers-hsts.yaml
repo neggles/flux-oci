@@ -1,8 +1,7 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: hsts-override
-  namespace: traefik
+  name: headers-hsts
 spec:
   headers:
     stsIncludeSubdomains: false

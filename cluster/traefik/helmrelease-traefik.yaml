@@ -2,7 +2,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: traefik
-  namespace: traefik
 spec:
   chart:
     spec:
@@ -19,3 +18,9 @@ spec:
     - kind: ConfigMap
       name: helm-chart-values-traefik
       valuesKey: values.yaml
+  values:
+    ports:
+      web:
+        forwardedHeaders:
+      websecure:
+        forwardedHeaders:

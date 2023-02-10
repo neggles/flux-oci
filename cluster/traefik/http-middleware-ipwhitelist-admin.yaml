@@ -1,0 +1,12 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ipwhitelist-admin
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 119.18.16.128/32
+      - 202.142.134.109/32
+    ipStrategy:
+      # depth: 2
+      excludedIPs: []

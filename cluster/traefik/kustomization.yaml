@@ -5,8 +5,15 @@ namespace: traefik
 resources:
   - ../../common
   - helmrelease-traefik.yaml
-  - http-middleware-hsts.yaml
-  - http-middleware-cf-whitelist.yaml
+  - http-middleware-ipwhitelist-admin.yaml
+  - http-middleware-ipwhitelist-cloudflare.yaml
+  # - http-middleware-errors.yaml
+  - http-middleware-headers-hsts.yaml
+
+components:
+  - ../../components/ipwhitelist
+  - ../../components/cloudflare
+
 configMapGenerator:
   - name: helm-chart-values-traefik
     files:

@@ -1,0 +1,11 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ipwhitelist-cloudflare
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 0.0.0.0/0
+      - ::/0
+    ipStrategy:
+      excludedIPs: []
