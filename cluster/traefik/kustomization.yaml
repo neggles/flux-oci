@@ -10,11 +10,21 @@ resources:
   # - http-middleware-errors.yaml
   - http-middleware-headers-hsts.yaml
 
-components:
-  - ../../components/ipwhitelist
-  - ../../components/cloudflare
-
 configMapGenerator:
   - name: helm-chart-values-traefik
     files:
       - values.yaml=helm-chart-values-traefik.yaml
+
+patches:
+  - path: patch-ports-cloudflare-ips.yaml
+    target:
+      group: helm.toolkit.fluxcd.io
+      kind: HelmRelease
+      name: traefik
+
+  - path: patch-middleware-bogons.yaml
+    target:
+      group: traefik.containo.us
+      version: v1alpha1
+      kind: Middleware
+      name: ipwhitelist-.*
