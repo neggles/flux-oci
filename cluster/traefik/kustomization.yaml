@@ -17,14 +17,14 @@ configMapGenerator:
 
 patches:
   # add cloudflare IPs to traefik header trust
-  - path: cloudflare-ips.patch.yaml
+  - path: patch-cloudflare-ips.yaml
     target:
       group: helm.toolkit.fluxcd.io
       kind: HelmRelease
       name: traefik
 
   # add reserved IPs to IP whitelist middlewares
-  - path: reserved-ips.patch.yaml
+  - path: patch-reserved-ips.yaml
     target:
       group: traefik.containo.us
       version: v1alpha1
