@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: error-pages
-      version: 6.x
+      version: 0.x.x
       sourceRef:
         kind: HelmRepository
         name: neggles
