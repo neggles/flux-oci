@@ -23,5 +23,5 @@ spec:
       namespace: traefik
 
   components:
-    - ../../components/ipwhitelist
-    - ../../components/cloudflare
+    - components/ipwhitelist
+    - components/cloudflare

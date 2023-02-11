@@ -16,5 +16,5 @@ configMapGenerator:
       - values.yaml=helm-chart-values-traefik.yaml
 
 components:
-  - ../../components/ipwhitelist
-  - ../../components/cloudflare
+  - components/ipwhitelist
+  - components/cloudflare
