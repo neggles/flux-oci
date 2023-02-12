@@ -9,4 +9,5 @@ spec:
     query: /{status}.html
     service:
       name: error-pages
+      namespace: error-pages
       port: 80
