@@ -12,3 +12,4 @@ spec:
       name: error-pages
       namespace: error-pages
       scheme: http
+      port: http
