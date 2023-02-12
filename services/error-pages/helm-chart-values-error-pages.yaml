@@ -6,7 +6,7 @@ logLevel: info
 image:
   repository: ghcr.io/tarampampam/error-pages
   pullPolicy: IfNotPresent
-  tag: "v2.20.0"
+  tag: "2.20"
 
 imagePullSecrets: []
 nameOverride: ""
