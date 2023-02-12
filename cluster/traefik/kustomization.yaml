@@ -9,6 +9,7 @@ resources:
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
   - http-middleware-headers-hsts.yaml
+  - sealedsecret-traefik-hub-agent.yaml
 
 configMapGenerator:
   - name: helm-chart-values-traefik
@@ -20,6 +21,7 @@ patches:
   - path: patch-cloudflare-ips.yaml
     target:
       group: helm.toolkit.fluxcd.io
+      version: v2beta1
       kind: HelmRelease
       name: traefik
 

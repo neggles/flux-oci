@@ -16,7 +16,7 @@ hub:
   # * enable allowExternalNameServices on KubernetesIngress provider
   # * enable allowCrossNamespace on KubernetesCRD provider
   # * add an internal (ClusterIP) Service, dedicated for Traefik Hub
-  enabled: false
+  enabled: true
   ## Default port can be changed
   # tunnelPort: 9901
   ## TLS is optional. Insecure is mutually exclusive with any other options
@@ -36,7 +36,7 @@ deployment:
   # Number of pods of the deployment (only applies when kind == Deployment)
   replicas: 1
   # Number of old history to retain to allow rollback (If not set, default Kubernetes value is set to 10)
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 5
   # Amount of time (in seconds) before Kubernetes will send the SIGKILL signal if Traefik does not shut down
   terminationGracePeriodSeconds: 60
   # The minimum number of seconds Traefik needs to be up and running before the DaemonSet/Deployment controller considers it available
