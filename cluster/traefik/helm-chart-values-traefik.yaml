@@ -642,7 +642,7 @@ ports:
     middlewares:
       - traefik-headers-hsts@kubernetescrd
       - traefik-ipwhitelist-cloudflare@kubernetescrd
-      - traefik-error-pages@kubernetescrd
+      # - traefik-error-pages@kubernetescrd
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:
     # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
