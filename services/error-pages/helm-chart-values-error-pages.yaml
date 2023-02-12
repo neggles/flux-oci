@@ -17,7 +17,7 @@ errorPages:
   templateName: "shuffle"
   showDetails: true
   defaultErrorPage: "404"
-  defaultHttpCode: "404"
+  defaultHttpCode: "200" # healthcheck will consider the pod down if this is >=400
   disableL10n: false
 
 podAnnotations: {}
