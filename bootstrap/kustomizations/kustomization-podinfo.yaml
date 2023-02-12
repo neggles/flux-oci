@@ -24,7 +24,7 @@ spec:
     - name: "sealed-secrets"
 
   healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
       name: podinfo
       namespace: podinfo
