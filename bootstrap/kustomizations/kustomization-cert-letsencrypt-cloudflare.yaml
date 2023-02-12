@@ -4,14 +4,19 @@ metadata:
   name: cert-letsencrypt-cloudflare
   namespace: flux-system
 spec:
-  interval: 15m
+  suspend: false
   path: certs/letsencrypt-cloudflare
-  dependsOn:
-    - name: "cert-manager"
-    - name: "sealed-secrets"
-  prune: true # remove any elements later removed from the above path
-  timeout: 2m # if not set, this defaults to interval duration, which is 1h
   sourceRef:
     kind: GitRepository
     name: flux-system
-  validation: server
+
+  interval: 10m # detect drift and undo kubectl edits
+  timeout: 3m0s # give up after X minutes
+  retryInterval: 2m0s # retry interval after apply or wait failure
+  wait: false # wait for all applied resources to become ready
+  prune: true # remove any elements no longer in the kustomization
+  force: false # recreate resources on immutable field changes
+
+  dependsOn:
+    - name: "cert-manager"
+    - name: "sealed-secrets"
