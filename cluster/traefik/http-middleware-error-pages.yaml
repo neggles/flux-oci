@@ -8,6 +8,7 @@ spec:
       - "400-599"
     query: /{status}.html
     service:
+      kind: Service
       name: error-pages
       namespace: error-pages
-      port: http
+      port: 80
