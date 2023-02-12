@@ -97,7 +97,7 @@ securityContext: {}
 
 ingress:
   enabled: true
-  className: "traefik"
+  className: ""
   annotations:
     kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -108,7 +108,6 @@ ingress:
           pathType: ImplementationSpecific
   tls:
     - secretName: cert-podinfo.owoci.neggles.dev
-      namespace: traefik
       hosts:
         - podinfo.owoci.neggles.dev
 

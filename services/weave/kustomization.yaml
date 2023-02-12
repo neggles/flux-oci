@@ -1,0 +1,12 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: flux-system
+resources:
+  - ../../common
+  - helmrelease-weave-gitops.yaml
+  - sealedsecret-weave-oidc-auth.yaml
+configMapGenerator:
+  - name: helm-chart-values-weave
+    files:
+      - values.yaml=helm-chart-values-weave.yaml
