@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: flux-system
 resources:
   - ../../common
-  - helmrelease-weave-gitops.yaml
+  - helmrelease-ww-gitops.yaml
   - sealedsecret-weave-oidc-auth.yaml
 configMapGenerator:
   - name: helm-chart-values-weave
