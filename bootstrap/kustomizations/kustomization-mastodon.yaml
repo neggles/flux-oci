@@ -15,7 +15,7 @@ spec:
   interval: 10m # detect drift and undo kubectl edits
   timeout: 3m0s # give up after X minutes
   retryInterval: 2m0s # retry interval after apply or wait failure
-  wait: true # wait for all applied resources to become ready
+  wait: false # wait for all applied resources to become ready
   prune: true # remove any elements no longer in the kustomization
   force: false # recreate resources on immutable field changes
 
