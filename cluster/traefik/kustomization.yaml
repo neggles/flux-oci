@@ -5,9 +5,9 @@ namespace: traefik
 resources:
   - ../../common
   - helmrelease-traefik.yaml
+  - http-middleware-error-pages.yaml
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
-  # - http-middleware-errors.yaml
   - http-middleware-headers-hsts.yaml
 
 configMapGenerator:

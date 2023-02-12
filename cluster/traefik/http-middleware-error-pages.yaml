@@ -10,4 +10,4 @@ spec:
     service:
       name: error-pages
       namespace: error-pages
-      port: 80
+      port: http
