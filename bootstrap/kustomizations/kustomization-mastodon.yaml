@@ -21,8 +21,6 @@ spec:
 
   dependsOn:
     - name: "sealed-secrets"
-    - name: "reflector"
-    - name: "topolvm--topolvm-system"
 
   healthChecks:
     - apiVersion: apps/v1
