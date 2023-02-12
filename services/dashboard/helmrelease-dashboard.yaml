@@ -5,6 +5,10 @@ metadata:
   name: dashboard
   namespace: dashboard
 spec:
+  releaseName: dashboard
+  interval: 10m
+  timeout: 5m
+
   chart:
     spec:
       chart: kubernetes-dashboard
@@ -13,9 +17,7 @@ spec:
         kind: HelmRepository
         name: dashboard
         namespace: flux-system
-  interval: 10m
-  timeout: 5m
-  releaseName: dashboard
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-dashboard

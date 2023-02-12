@@ -4,6 +4,10 @@ metadata:
   name: topolvm
   namespace: topolvm-system
 spec:
+  releaseName: topolvm
+  interval: 10m
+  timeout: 5m
+
   chart:
     spec:
       chart: topolvm
@@ -12,9 +16,7 @@ spec:
         kind: HelmRepository
         name: topolvm
         namespace: flux-system
-  interval: 10m
-  timeout: 5m
-  releaseName: topolvm
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-topolvm

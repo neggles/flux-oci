@@ -3,6 +3,10 @@ kind: HelmRelease
 metadata:
   name: traefik
 spec:
+  releaseName: traefik
+  interval: 15m
+  timeout: 5m
+
   chart:
     spec:
       chart: traefik
@@ -11,13 +15,12 @@ spec:
         kind: HelmRepository
         name: traefik
         namespace: flux-system
-  interval: 15m
-  timeout: 5m
-  releaseName: traefik
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-traefik
       valuesKey: values.yaml
+
   values:
     ports:
       web:

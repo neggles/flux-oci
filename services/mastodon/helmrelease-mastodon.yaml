@@ -5,6 +5,10 @@ metadata:
   name: mastodon
   namespace: mastodon
 spec:
+  releaseName: mastodon
+  interval: 10m
+  timeout: 5m
+
   chart:
     spec:
       chart: .
@@ -13,9 +17,7 @@ spec:
         kind: GitRepository
         name: mastodon
         namespace: flux-system
-  interval: 10m
-  timeout: 5m
-  releaseName: mastodon
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-mastodon
