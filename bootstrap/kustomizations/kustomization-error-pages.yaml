@@ -7,8 +7,7 @@ spec:
   path: services/error-pages
   sourceRef:
     kind: GitRepository
-    name: error-pages
-    namespace: flux-system
+    name: flux-system
   targetNamespace: error-pages
 
   interval: 10m # detect drift and undo kubectl edits
