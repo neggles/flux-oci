@@ -12,7 +12,7 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-error-pages:
+errorPages:
   # error-pages configuration
   templateName: "shuffle"
   showDetails: true
