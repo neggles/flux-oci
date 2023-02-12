@@ -18,7 +18,7 @@ spec:
   force: false # recreate resources on immutable field changes
 
   healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
       name: cert-manager
       namespace: cert-manager
