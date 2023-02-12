@@ -9,29 +9,6 @@ spec:
       - ::/0
     ipStrategy:
       excludedIPs:
-        - 127.0.0.0/8 # RFC1122 Loopback
-        - 169.254.0.0/16 # RFC3927 link-local
-
         - 10.0.0.0/8 # RFC1918 class A
         - 172.16.0.0/12 # RFC1918 class Bs
         - 192.168.0.0/16 # RFC1918 class Cs
-
-        - 100.64.0.0/10 # RFC6598 CGNv4
-
-        - 192.88.99.0/24 # RFC3068 6to4 Relay Anycast
-        - 198.18.0.0/15 # RFC2544 Benchmarking
-        - 0.0.0.0/8 # RFC1122 IANA IPv4 "this" network
-        - 240.0.0.0/4 # RFC1112 IANA IPv4 "future" network
-
-        - 192.0.0.0/24 # RFC6890 IETF Protocol Assignments
-        - 192.0.2.0/24 # RFC5737 documentation
-        - 198.51.100.0/24 # RFC5737 documentation
-        - 203.0.113.0/24 # RFC5737 documentation
-
-        - ::1/128 # RFC4291 Loopback
-        - fc00::/7 # RFC4193 ULA
-        - fe80::/10 # RFC4291 link-local
-
-        - 100::/64 # RFC6666 documentation
-        - 2001::/23 # RFC2928 IETF Protocol Assignments
-
