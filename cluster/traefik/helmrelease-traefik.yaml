@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: traefik
+  namespace: traefik
 spec:
   releaseName: traefik
   interval: 15m
@@ -28,3 +29,28 @@ spec:
         forwardedHeaders:
       websecure:
         forwardedHeaders:
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: hub-agent
+  namespace: traefik
+spec:
+  releaseName: hub-agent
+  interval: 15m
+  timeout: 5m
+  targetNamespace: traefik
+
+  chart:
+    spec:
+      chart: hub-agent
+      version: 1.2.x
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: flux-system
+
+  valuesFrom:
+    - kind: ConfigMap
+      name: helm-chart-values-hub-agent
+      valuesKey: values.yaml

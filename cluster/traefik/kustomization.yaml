@@ -15,6 +15,9 @@ configMapGenerator:
   - name: helm-chart-values-traefik
     files:
       - values.yaml=helm-chart-values-traefik.yaml
+  - name: helm-chart-values-hub-agent
+    files:
+      - values.yaml=helm-chart-values-hub-agent.yaml
 
 patches:
   # add cloudflare IPs to traefik header trust

@@ -1,0 +1,104 @@
+# Default values for hub-helm-chart.
+image:
+  name: ghcr.io/traefik/hub-agent-kubernetes
+  pullPolicy: Always
+  pullSecrets: []
+  # Overrides the image tag whose default is the chart appVersion.
+  # tag: "v1.1.0"
+
+# User token to access to hub
+token: ""
+
+# You can reference a secret for the Hub Token, this takes precedence over `token`
+tokenSecretRef:
+  name: hub-agent
+  key: token
+
+controllerDeployment:
+  # Additional deployment annotations
+  annotations:
+    hub.traefik.io/ingress-controller: none
+  # Additional deployment labels
+  labels: {}
+  # Additional pods annotations
+  podAnnotations: {}
+  # Additional pods labels
+  podLabels: {}
+  # Traefik metrics configuration
+  traefik:
+    metricsURL: http://traefik-hub.traefik.svc.cluster.local:9100/metrics
+  args:
+    - --log-level=debug
+  # env:
+  #   - name: "LOG_LEVEL"
+  #     value: "trace"
+
+authServerDeployment:
+  # Number of replicas
+  replicas: 3
+  # Additional deployment annotations
+  annotations:
+    hub.traefik.io/ingress-controller: none
+  # Additional deployment labels
+  labels: {}
+  # Additional pods annotations
+  podAnnotations: {}
+  # Additional pods labels
+  podLabels: {}
+  args:
+    - --log-level=debug
+
+tunnelDeployment:
+  # Number of replicas
+  replicas: 1
+  # Additional deployment annotations
+  annotations:
+    hub.traefik.io/ingress-controller: none
+  # Additional deployment labels
+  labels: {}
+  # Additional pods annotations
+  podAnnotations: {}
+  # Additional pods labels
+  podLabels: {}
+  # Traefik tunnel configuration
+  traefik:
+    tunnelHost: traefik-hub.traefik.svc.cluster.local
+    tunnelPort: 9901
+  args:
+    - --log-level=debug
+
+resources:
+  {}
+  # requests:
+  #   cpu: "100m"
+  #   memory: "50Mi"
+  # limits:
+  #   cpu: "300m"
+  #   memory: "150Mi"
+affinity: {}
+
+nodeSelector: {}
+tolerations: []
+
+serviceAccount:
+  name: ""
+  # If set, an existing service account is used
+  # If not set, a service account is created automatically using the fullname template
+  annotations: {}
+
+service:
+  # Additional service annotations
+  annotations: {}
+  # Additional service labels
+  labels: {}
+
+catchAllService:
+  externalName: hub.traefik.io
+
+admissionWebhook:
+  # The webhook certificate validity duration in days (100 years by default)
+  certValidity: 36525
+
+# When set to true, it will remove Helm specific labels
+# It's usefull for generating clean Yaml on a GitOps setup
+withoutHelmLabels: false
