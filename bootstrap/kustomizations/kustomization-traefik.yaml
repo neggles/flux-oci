@@ -18,11 +18,8 @@ spec:
   prune: true # remove any elements no longer in the kustomization
   force: false # recreate resources on immutable field changes
 
-  dependsOn:
-    - name: "cert-letsencrypt-cloudflare"
-
   healthChecks:
-    - apiVersion: apps/v1
-      kind: Deployment
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
       name: traefik
       namespace: traefik
