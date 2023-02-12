@@ -1,4 +1,4 @@
-- op: replace
+- op: add
   path: /spec/ipWhiteList/ipStrategy/excludedIPs
   value:
     - 127.0.0.0/8 # RFC1122 Loopback

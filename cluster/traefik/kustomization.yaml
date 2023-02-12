@@ -29,9 +29,9 @@ patches:
       name: traefik
 
   # add reserved IPs to IP whitelist middlewares
-  - path: patch-reserved-ips.yaml
-    target:
-      group: traefik.containo.us
-      version: v1alpha1
-      kind: Middleware
-      name: ipwhitelist-.*
+  # - path: patch-reserved-ips.yaml
+  #   target:
+  #     group: traefik.containo.us
+  #     version: v1alpha1
+  #     kind: Middleware
+  #     name: ipwhitelist-.*
