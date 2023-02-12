@@ -6,6 +6,7 @@ spec:
   releaseName: traefik
   interval: 15m
   timeout: 5m
+  targetNamespace: traefik
 
   chart:
     spec:
