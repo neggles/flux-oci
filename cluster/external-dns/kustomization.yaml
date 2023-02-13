@@ -5,6 +5,7 @@ namespace: external-dns
 resources:
   - ../../common
   - helmrelease-external-dns.yaml
+
 configMapGenerator:
   - name: helm-chart-values-external-dns
     files:

@@ -4,18 +4,28 @@ metadata:
   name: external-dns
   namespace: external-dns
 spec:
+  releaseName: external-dns
+  interval: 10m
+  timeout: 5m
+  targetNamespace: external-dns
+
   chart:
     spec:
       chart: external-dns
-      version: 6.x
+      version: 6.13.x
       sourceRef:
         kind: HelmRepository
         name: bitnami
         namespace: flux-system
-  interval: 10m
-  timeout: 5m
-  releaseName: external-dns
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-external-dns
       valuesKey: values.yaml # This is the default, but best to be explicit for clarity
+
+  values:
+    image:
+      digest: ""
+      registry: ghcr.io
+      repository: zcube/bitnami-compat/external-dns
+      tag: 0.13.2-debian-11-r55
