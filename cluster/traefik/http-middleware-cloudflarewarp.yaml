@@ -1,0 +1,10 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: cloudflarewarp
+spec:
+  plugin:
+    cloudflarewarp:
+      disableDefault: false
+      trustip:
+        - "10.22.0.0/24"

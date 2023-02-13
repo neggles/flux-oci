@@ -115,7 +115,10 @@ experimental:
   v3:
     enabled: false
   plugins:
-    enabled: false
+    cloudflarewarp:
+      modulename: github.com/BetterCorp/cloudflarewarp
+      version: v1.3.3
+
   kubernetesGateway:
     enabled: false
     gateway:
@@ -648,6 +651,7 @@ ports:
     #   - namespace-name1@kubernetescrd
     #   - namespace-name2@kubernetescrd
     middlewares:
+      - traefik-cloudflarewarp@kubernetescrd
       - traefik-headers-hsts@kubernetescrd
 
   metrics:
