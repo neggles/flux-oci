@@ -16,7 +16,7 @@ hub:
   # * enable allowExternalNameServices on KubernetesIngress provider
   # * enable allowCrossNamespace on KubernetesCRD provider
   # * add an internal (ClusterIP) Service, dedicated for Traefik Hub
-  enabled: true
+  enabled: false
   ## Default port can be changed
   # tunnelPort: 9901
   ## TLS is optional. Insecure is mutually exclusive with any other options
@@ -234,7 +234,7 @@ logs:
     format: json
     # By default, the level is set to ERROR.
     # Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: INFO
+    level: DEBUG
   access:
     # To enable access logs
     enabled: true
@@ -249,7 +249,7 @@ logs:
     # bufferingSize: 100
     ## Filtering https://docs.traefik.io/observability/access-logs/#filtering
     filters:
-      statuscodes: "200,300-302,400-599"
+      statuscodes: "300-599"
       # statuscodes: "200,300-302"
       retryattempts: true
       # minduration: 10ms
@@ -501,7 +501,6 @@ tracing:
 
 globalArguments:
   - "--global.checknewversion"
-  - "--global.sendanonymoususage"
 
 #
 # Configure Traefik static configuration
@@ -568,6 +567,7 @@ ports:
     exposedPort: 9000
     # The port protocol (TCP/UDP)
     protocol: TCP
+
   web:
     ## Enable this entrypoint as a default entrypoint. When a service doesn't explicity set an entrypoint it will only use this entrypoint.
     # asDefault: true
@@ -594,6 +594,7 @@ ports:
     # proxyProtocol:
     #   trustedIPs: []
     #   insecure: false
+
   websecure:
     ## Enable this entrypoint as a default entrypoint. When a service doesn't explicity set an entrypoint it will only use this entrypoint.
     # asDefault: true
@@ -648,8 +649,7 @@ ports:
     #   - namespace-name2@kubernetescrd
     middlewares:
       - traefik-headers-hsts@kubernetescrd
-      - traefik-error-pages@kubernetescrd
-      - traefik-ipwhitelist-cloudflare@kubernetescrd
+
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:
     # https://github.com/prometheus/prometheus/wiki/Default-port-allocations
