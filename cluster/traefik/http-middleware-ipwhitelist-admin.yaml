@@ -8,4 +8,7 @@ spec:
       - 119.18.16.128/32
       - 202.142.134.109/32
     ipStrategy:
-      excludedIPs: []
+      excludedIPs:
+        - 10.0.0.0/8 # RFC1918 class A
+        - 172.16.0.0/12 # RFC1918 class Bs
+        - 192.168.0.0/16 # RFC1918 class Cs

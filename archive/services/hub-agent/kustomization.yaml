@@ -1,0 +1,13 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: traefik
+resources:
+  - ../../../common
+  - helmrelease-traefik-hub-agent.yaml
+  - sealedsecret-traefik-hub-agent.yaml
+
+configMapGenerator:
+  - name: helm-chart-values-hub-agent
+    files:
+      - values.yaml=helm-chart-values-hub-agent.yaml

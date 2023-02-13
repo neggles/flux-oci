@@ -9,15 +9,11 @@ resources:
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
   - http-middleware-headers-hsts.yaml
-  - sealedsecret-traefik-hub-agent.yaml
 
 configMapGenerator:
   - name: helm-chart-values-traefik
     files:
       - values.yaml=helm-chart-values-traefik.yaml
-  - name: helm-chart-values-hub-agent
-    files:
-      - values.yaml=helm-chart-values-hub-agent.yaml
 
 patches:
   # add cloudflare IPs to traefik header trust
@@ -28,10 +24,10 @@ patches:
       kind: HelmRelease
       name: traefik
 
-  # add reserved IPs to IP whitelist middlewares
-  # - path: patch-reserved-ips.yaml
-  #   target:
-  #     group: traefik.containo.us
-  #     version: v1alpha1
-  #     kind: Middleware
-  #     name: ipwhitelist-.*
+  # add reserved IPs to IP whitelist middleware skiplists
+  - path: patch-reserved-ips.yaml
+    target:
+      group: traefik.containo.us
+      version: v1alpha1
+      kind: Middleware
+      name: ipwhitelist-.*

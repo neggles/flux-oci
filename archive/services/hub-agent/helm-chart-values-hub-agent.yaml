@@ -35,7 +35,7 @@ controllerDeployment:
 
 authServerDeployment:
   # Number of replicas
-  replicas: 3
+  replicas: 1
   # Additional deployment annotations
   annotations:
     hub.traefik.io/ingress-controller: none
@@ -93,7 +93,8 @@ service:
   labels: {}
 
 catchAllService:
-  externalName: hub.traefik.io
+  {}
+  # externalName: hub.traefik.io
 
 admissionWebhook:
   # The webhook certificate validity duration in days (100 years by default)
