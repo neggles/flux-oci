@@ -26,6 +26,6 @@ spec:
   values:
     ports:
       web:
-        forwardedHeaders:
+        forwardedHeaders: []
       websecure:
-        forwardedHeaders:
+        forwardedHeaders: []

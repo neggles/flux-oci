@@ -1,10 +1,10 @@
 - op: add
-  path: /spec/values/ports/web/forwardedHeaders
+  path: /spec/values/ports/websecure/forwardedHeaders
   value:
     trustedIPs:
-      # - 10.16.0.0/20
-      # - 172.16.0.0/12
-      # - 192.168.0.0/16
+      - 10.16.0.0/20
+      - 172.16.0.0/12
+      - 192.168.0.0/16
       - 173.245.48.0/20
       - 103.21.244.0/22
       - 103.22.200.0/22
@@ -28,5 +28,5 @@
       - 2a06:98c0::/29
       - 2c0f:f248::/32
 - op: copy
-  from: /spec/values/ports/web/forwardedHeaders
-  path: /spec/values/ports/websecure/forwardedHeaders
+  from: /spec/values/ports/websecure/forwardedHeaders
+  path: /spec/values/ports/web/forwardedHeaders
