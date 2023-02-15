@@ -40,7 +40,7 @@ deployment:
   # Amount of time (in seconds) before Kubernetes will send the SIGKILL signal if Traefik does not shut down
   terminationGracePeriodSeconds: 60
   # The minimum number of seconds Traefik needs to be up and running before the DaemonSet/Deployment controller considers it available
-  minReadySeconds: 0
+  minReadySeconds: 5
   # Additional deployment annotations (e.g. for jaeger-operator sidecar injection)
   annotations: {}
   # Additional deployment labels (e.g. for filtering deployment by custom labels)
@@ -243,7 +243,7 @@ logs:
     format: json
     # By default, the level is set to ERROR.
     # Alternative logging levels are DEBUG, PANIC, FATAL, ERROR, WARN, and INFO.
-    level: DEBUG
+    level: INFO
   access:
     # To enable access logs
     enabled: true
@@ -272,10 +272,8 @@ logs:
       headers:
         defaultmode: keep
         names:
-          X-Forwarded-For: keep
-          X-Forwarded-Host: keep
-          X-Forwarded-Proto: keep
-          X-Real-Ip: keep
+          Authorization: drop
+          Cookie: redact
           CF-Connecting-IP: keep
           CF-Connecting-IPv6: keep
           CF-Pseudo-IPv4: keep
@@ -283,8 +281,11 @@ logs:
           CF-Ray: keep
           CF-Worker: keep
           CF-Visitor: keep
-          User-Agent: redact
-          Authorization: drop
+          X-Forwarded-For: keep
+          X-Forwarded-Host: keep
+          X-Forwarded-Proto: keep
+          X-Real-Ip: keep
+          User-Agent: keep
           Content-Type: keep
 
 metrics:
@@ -595,9 +596,9 @@ ports:
     redirectTo: websecure
 
     # Trust forwarded  headers information (X-Forwarded-*).
-    # forwardedHeaders:
-    #   trustedIPs: []
-    #   insecure: false
+    forwardedHeaders:
+      trustedIPs: []
+      insecure: false
     # # Enable the Proxy Protocol header parsing for the entry point
     # proxyProtocol:
     #   trustedIPs: []
@@ -637,7 +638,7 @@ ports:
     ## Set TLS at the entrypoint
     ## https://doc.traefik.io/traefik/routing/entrypoints/#tls
     tls:
-      enabled: false
+      enabled: true
       # this is the name of a TLSOption definition
       options: ""
       certResolver: ""

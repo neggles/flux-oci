@@ -236,7 +236,7 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: mastodon-buffering@kubernetescrd
-
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
   # -- you can specify the ingressClassName if it differs from the default
   ingressClassName: traefik
   hosts:
