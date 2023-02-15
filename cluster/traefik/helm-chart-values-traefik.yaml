@@ -514,8 +514,10 @@ globalArguments:
 additionalArguments:
   - "--experimental.plugins.cloudflarewarp.moduleName=github.com/BetterCorp/cloudflarewarp"
   - "--experimental.plugins.cloudflarewarp.version=v1.3.3"
-  - "--experimental.plugins.headerdump.moduleName=github.com/jaybubs/headerdump"
-  - "--experimental.plugins.headerdump.version=v0.2.0"
+  # - "--experimental.plugins.headerdump.moduleName=github.com/jaybubs/headerdump"
+  # - "--experimental.plugins.headerdump.version=v0.2.0"
+  - "--experimental.plugins.middleflare.moduleName=github.com/neggles/middleflare"
+  - "--experimental.plugins.middleflare.version=v0.0.2"
 #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
 #  - "--log.level=DEBUG"
 
@@ -655,9 +657,7 @@ ports:
     #   - namespace-name1@kubernetescrd
     #   - namespace-name2@kubernetescrd
     middlewares:
-      - traefik-headers-hsts@kubernetescrd
-      - traefik-cloudflarewarp@kubernetescrd
-      # - traefik-ipwhitelist-cloudflare@kubernetescrd
+      - traefik-default-chain@kubernetescrd
 
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:

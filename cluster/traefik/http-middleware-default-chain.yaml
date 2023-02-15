@@ -1,0 +1,11 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: default-chain
+spec:
+  chain:
+    middlewares:
+      - name: traefik-headers-hsts@kubernetescrd
+      - name: traefik-middleflare@kubernetescrd
+      - name: traefik-error-pages@kubernetescrd

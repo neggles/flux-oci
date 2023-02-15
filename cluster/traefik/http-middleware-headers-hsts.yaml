@@ -7,5 +7,3 @@ spec:
     stsIncludeSubdomains: false
     stsPreload: false
     stsSeconds: 31536000
-    customResponseHeaders:
-      Strict-Transport-Security: "max-age=31536000"
