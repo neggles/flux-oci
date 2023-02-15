@@ -270,7 +270,7 @@ logs:
         names:
           ClientUsername: drop
       headers:
-        defaultmode: drop
+        defaultmode: keep
         names:
           X-Forwarded-For: keep
           X-Forwarded-Host: keep
