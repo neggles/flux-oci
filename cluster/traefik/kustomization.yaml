@@ -7,10 +7,11 @@ resources:
   - helmrelease-traefik.yaml
   - http-middleware-cloudflarewarp.yaml
   - http-middleware-debug.yaml
+  - http-middleware-default-chain.yaml
   - http-middleware-error-pages.yaml
+  - http-middleware-headers-hsts.yaml
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
-  - http-middleware-headers-hsts.yaml
 
 configMapGenerator:
   - name: helm-chart-values-traefik
