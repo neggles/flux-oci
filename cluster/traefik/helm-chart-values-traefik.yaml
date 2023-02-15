@@ -118,6 +118,9 @@ experimental:
     cloudflarewarp:
       modulename: github.com/BetterCorp/cloudflarewarp
       version: v1.3.3
+    headerdump:
+      modulename: github.com/jaybubs/headerdump
+      version: v0.2.0
 
   kubernetesGateway:
     enabled: false
@@ -652,8 +655,9 @@ ports:
     #   - namespace-name1@kubernetescrd
     #   - namespace-name2@kubernetescrd
     middlewares:
-      - traefik-cloudflarewarp@kubernetescrd
-      - traefik-headers-hsts@kubernetescrd
+      - traefik-headerdump@kubernetescrd
+      # - traefik-cloudflarewarp@kubernetescrd
+      # - traefik-headers-hsts@kubernetescrd
 
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:

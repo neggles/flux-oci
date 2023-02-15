@@ -6,6 +6,7 @@ resources:
   - ../../common
   - helmrelease-traefik.yaml
   - http-middleware-cloudflarewarp.yaml
+  - http-middleware-debug.yaml
   - http-middleware-error-pages.yaml
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
