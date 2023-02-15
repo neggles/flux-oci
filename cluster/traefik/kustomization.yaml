@@ -5,7 +5,7 @@ namespace: traefik
 resources:
   - ../../common
   - helmrelease-traefik.yaml
-  - http-middleware-cloudflarewarp.yaml
+  - http-middleware-cloudflare.yaml
   - http-middleware-debug.yaml
   - http-middleware-default-chain.yaml
   - http-middleware-error-pages.yaml
