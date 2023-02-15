@@ -657,8 +657,8 @@ ports:
     #   - namespace-name2@kubernetescrd
     middlewares:
       - traefik-headerdump@kubernetescrd
-      # - traefik-cloudflarewarp@kubernetescrd
-      # - traefik-headers-hsts@kubernetescrd
+      - traefik-cloudflarewarp@kubernetescrd
+      - traefik-headers-hsts@kubernetescrd
 
   metrics:
     # When using hostNetwork, use another port to avoid conflict with node exporter:
