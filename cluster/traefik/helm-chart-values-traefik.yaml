@@ -116,12 +116,6 @@ experimental:
     enabled: false
   plugins:
     enabled: true
-    cloudflarewarp:
-      modulename: github.com/BetterCorp/cloudflarewarp
-      version: v1.3.3
-    headerdump:
-      modulename: github.com/jaybubs/headerdump
-      version: v0.2.0
 
   kubernetesGateway:
     enabled: false
@@ -517,7 +511,11 @@ globalArguments:
 # Additional arguments to be passed at Traefik's binary
 # All available options available on https://docs.traefik.io/reference/static-configuration/cli/
 ## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
-additionalArguments: []
+additionalArguments:
+  - "--experimental.plugins.cloudflarewarp.moduleName=github.com/BetterCorp/cloudflarewarp"
+  - "--experimental.plugins.cloudflarewarp.version=v1.3.3"
+  - "--experimental.plugins.headerdump.moduleName=github.com/jaybubs/headerdump"
+  - "--experimental.plugins.headerdump.version=v0.2.0"
 #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
 #  - "--log.level=DEBUG"
 
