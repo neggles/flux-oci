@@ -115,6 +115,7 @@ experimental:
   v3:
     enabled: false
   plugins:
+    enabled: true
     cloudflarewarp:
       modulename: github.com/BetterCorp/cloudflarewarp
       version: v1.3.3
