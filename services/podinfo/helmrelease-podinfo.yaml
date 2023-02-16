@@ -6,7 +6,7 @@ metadata:
   namespace: podinfo
 spec:
   releaseName: podinfo
-  interval: 10m
+  interval: 15m
   timeout: 5m
 
   chart:

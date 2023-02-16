@@ -4,6 +4,10 @@ metadata:
   name: cert-manager
   namespace: cert-manager
 spec:
+  releaseName: cert-manager
+  interval: 15m
+  timeout: 5m
+
   chart:
     spec:
       chart: cert-manager
@@ -12,9 +16,7 @@ spec:
         kind: HelmRepository
         name: jetstack
         namespace: flux-system
-  interval: 15m
-  timeout: 5m
-  releaseName: cert-manager
+
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-cert-manager

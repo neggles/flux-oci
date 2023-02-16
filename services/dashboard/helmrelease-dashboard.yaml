@@ -6,7 +6,7 @@ metadata:
   namespace: dashboard
 spec:
   releaseName: dashboard
-  interval: 10m
+  interval: 15m
   timeout: 5m
 
   chart:

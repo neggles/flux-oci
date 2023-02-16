@@ -6,7 +6,7 @@ metadata:
   namespace: error-pages
 spec:
   releaseName: error-pages
-  interval: 10m
+  interval: 15m
   timeout: 5m
 
   chart:
