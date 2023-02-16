@@ -6,9 +6,9 @@ resources:
   - ../../common
   - helmrelease-traefik.yaml
   - http-middleware-cloudflare.yaml
-  - http-middleware-debug.yaml
   - http-middleware-default-chain.yaml
   - http-middleware-error-pages.yaml
+  - http-middleware-headerdump.yaml
   - http-middleware-headers-hsts.yaml
   - http-middleware-ipwhitelist-admin.yaml
   - http-middleware-ipwhitelist-cloudflare.yaml
@@ -19,13 +19,13 @@ configMapGenerator:
       - values.yaml=helm-chart-values-traefik.yaml
 
 patches:
-  # add cloudflare IPs to traefik header trust
-  - path: patch-ports-trusted-ips.yaml
-    target:
-      group: helm.toolkit.fluxcd.io
-      version: v2beta1
-      kind: HelmRelease
-      name: traefik
+  # # add cloudflare IPs to traefik header trust
+  # - path: patch-ports-trusted-ips.yaml
+  #   target:
+  #     group: helm.toolkit.fluxcd.io
+  #     version: v2beta1
+  #     kind: HelmRelease
+  #     name: traefik
 
   # and to excluded IPs for ipwhitelist middleware
   - path: patch-ipwhitelist-excluded-ips.yaml

@@ -2,16 +2,6 @@
 apiVersion: traefik.containo.us/v1alpha1
 kind: Middleware
 metadata:
-  name: cloudflarewarp
-spec:
-  plugin:
-    cloudflarewarp:
-      disableDefault: false
-      trustip: []
----
-apiVersion: traefik.containo.us/v1alpha1
-kind: Middleware
-metadata:
   name: middleflare
 spec:
   plugin:
