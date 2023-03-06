@@ -256,7 +256,7 @@ elasticsearch:
   # RAILS_ENV=production bundle exec rake chewy:sync
   # (https://docs.joinmastodon.org/admin/optional/elasticsearch/)
   # @ignored
-  enabled: true
+  enabled: false
   # @ignored
 
   image:
