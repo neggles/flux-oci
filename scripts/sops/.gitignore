@@ -1,0 +1,39 @@
+# The deny-all at the top actually covers everything, but we want to be
+# very explicit about what we allow in this one for security reasons, so
+# we list specific denied file types and dirs just to be safe.
+
+# Deny all
+*
+
+# Deny key files
+*.key
+*.asc
+*.gnupg
+*.gpg
+# Deny config files
+*.conf
+*.cfg
+*.ini
+*.cnf
+# Deny log files
+*.log
+# Deny backup files
+*.bak
+*.old
+# Deny temp files
+*.tmp
+*.temp
+# Deny the entire gpg-home directory
+/gpg-home/
+/.gnupg/
+
+# Allow gitignore
+!.gitignore
+
+# Allow scripts
+!/*.sh
+!/*.py
+
+# allow public keys
+!*.pub
+!*.pub.asc
