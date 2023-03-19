@@ -15,3 +15,12 @@ configMapGenerator:
   - name: helm-chart-values-mastodon
     files:
       - values.yaml=helm-chart-values-mastodon.yaml
+
+patches:
+  # add cloudflare IPs to web container trusted IPs
+  - path: patch-web-trusted-ips.yaml
+    target:
+      group: helm.toolkit.fluxcd.io
+      version: v2beta1
+      kind: HelmRelease
+      name: mastodon

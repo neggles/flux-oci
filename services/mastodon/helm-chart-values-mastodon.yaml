@@ -175,8 +175,7 @@ mastodon:
     #   cpu: 250m
     #   memory: 128Mi
     extraEnv: []
-    trustedIPs:
-      - 10.22.0.0/24
+    trustedIPs: []
 
   web:
     port: 3000
@@ -203,9 +202,7 @@ mastodon:
     workers: "2"
     persistentTimeout: "20"
     # Extra environment variables to pass to the web container
-    extraEnv: []
-    trustedIPs:
-      - 10.22.0.0/24
+    trustedIPs: []
 
   metrics:
     statsd:
@@ -252,13 +249,15 @@ elasticsearch:
   # RAILS_ENV=production bundle exec rake chewy:sync
   # (https://docs.joinmastodon.org/admin/optional/elasticsearch/)
   # @ignored
-  enabled: false
+  enabled: true
   # @ignored
+  global:
+    kibanaEnabled: false
+    imageRegistry: ghcr.io
   image:
     digest: ""
     registry: ghcr.io
     repository: zcube/bitnami-compat/elasticsearch
-    # tag: 8.6.1-debian-11-r54
     tag: 7-debian-11
   kibana: null
   metrics:
@@ -281,6 +280,7 @@ elasticsearch:
 
   master:
     replicaCount: 3
+    masterOnly: false
     persistence:
       size: 4Gi
 
@@ -295,8 +295,6 @@ elasticsearch:
   data:
     enabled: false
     replicaCount: 0
-    persistence:
-      size: 4Gi
 
 # https://github.com/bitnami/charts/tree/master/bitnami/postgresql#parameters
 postgresql:

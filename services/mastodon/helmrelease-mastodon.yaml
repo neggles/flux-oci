@@ -22,3 +22,10 @@ spec:
     - kind: ConfigMap
       name: helm-chart-values-mastodon
       valuesKey: values.yaml
+
+  values:
+    mastodon:
+      web:
+        trustedIPs: []
+      streaming:
+        trustedIPs: []
