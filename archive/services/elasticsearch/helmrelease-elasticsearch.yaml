@@ -1,0 +1,24 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: elasticsearch
+  namespace: elasticsearch
+spec:
+  releaseName: elasticsearch
+  interval: 15m
+  timeout: 5m
+
+  chart:
+    spec:
+      chart: elasticsearch
+      version: 7.x
+      sourceRef:
+        kind: HelmRepository
+        name: elastic
+        namespace: flux-system
+
+  valuesFrom:
+    - kind: ConfigMap
+      name: helm-chart-values-elasticsearch
+      valuesKey: values.yaml

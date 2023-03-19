@@ -1,0 +1,11 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: elasticsearch
+resources:
+  - ../../common
+  - helmrelease-elasticsearch.yaml
+configMapGenerator:
+  - name: helm-chart-values-elasticsearch
+    files:
+      - values.yaml=helm-chart-values-elasticsearch.yaml
