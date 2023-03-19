@@ -15,11 +15,11 @@ mastodon:
   # have to be reset
   createAdmin:
     # @ignored
-    enabled: true
+    enabled: false
     # @ignored
     username: neggles
     # @ignored
-    email: neg2led@gmail.com
+    email: neggles@parasocial.network
   cron:
     # -- run `tootctl media remove` every week
     removeMedia:

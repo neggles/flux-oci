@@ -11,11 +11,12 @@ spec:
 
   chart:
     spec:
-      chart: .
+      chart: mastodon
       version: 4.x
+      interval: 5m
       sourceRef:
-        kind: GitRepository
-        name: mastodon
+        kind: HelmRepository
+        name: neggles
         namespace: flux-system
 
   valuesFrom:
