@@ -1,5 +1,5 @@
 - op: add
-  path: /spec/values/mastodon/web/trustedIPs
+  path: /spec/values/mastodon/web
   value:
     trustedIPs:
       - 10.0.0.0/8
