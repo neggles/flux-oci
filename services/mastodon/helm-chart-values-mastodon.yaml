@@ -335,9 +335,14 @@ postgresql:
     # you can also specify the name of an existing Secret
     # with a key of password set to the password you want
     existingSecret: "mastodon-postgres-password"
+  postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
   primary:
     persistence:
       size: 2Gi
+    extendedConfiguration: |
+      pg_stat_statements.track = all
+      pg_stat_statements.max = 10000
+      track_activity_query_size = 2048
 
 # https://github.com/bitnami/charts/tree/master/bitnami/redis#parameters
 redis:
