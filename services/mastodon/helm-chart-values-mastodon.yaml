@@ -97,41 +97,32 @@ mastodon:
     #   cpu: 250m
     #   memory: 512Mi
     workers:
-      - name: all-queues
-        # -- Number of threads / parallel sidekiq jobs that are executed per Pod
+      - name: default
         concurrency: 25
-        # -- Number of Pod replicas deployed by the Deployment
         replicas: 1
-        # -- Resources for this specific deployment to allow optimised scaling, overwrites .Values.mastodon.sidekiq.resources
-        resources: {}
-        # -- Affinity for this specific deployment, overwrites .Values.affinity and .Values.mastodon.sidekiq.affinity
-        affinity: {}
-        # -- Sidekiq queues for Mastodon that are handled by this worker. See https://docs.joinmastodon.org/admin/scaling/#concurrency
-        # See https://github.com/mperham/sidekiq/wiki/Advanced-Options#queues for how to weight queues as argument
         queues:
-          - default,8
-          - push,6
-          - ingress,4
-          - mailers,2
+          - default
+      - name: push-pull
+        concurrency: 15
+        replicas: 1
+        queues:
+          - push
           - pull
+      - name: mailers
+        concurrency: 5
+        replicas: 1
+        queues:
+          - mailers
+      - name: scheduler
+        concurrency: 5
+        replicas: 1
+        queues:
           - scheduler # Make sure the scheduler queue only exists once and with a worker that has 1 replica.
-    #- name: push-pull
-    #  concurrency: 50
-    #  resources: {}
-    #  replicas: 2
-    #  queues:
-    #    - push
-    #    - pull
-    #- name: mailers
-    #  concurrency: 25
-    #  replicas: 2
-    #  queues:
-    #    - mailers
-    #- name: default
-    #  concurrency: 25
-    #  replicas: 2
-    #  queues:
-    #    - default
+      - name: ingress
+        concurrency: 10
+        replicas: 1
+        queues:
+          - ingress
   smtp:
     auth_method: login
     ca_file: /etc/ssl/certs/ca-certificates.crt
@@ -343,6 +334,8 @@ postgresql:
       pg_stat_statements.track = all
       pg_stat_statements.max = 10000
       track_activity_query_size = 2048
+      shared_buffers = 256MB
+      max_connections = 300
 
 # https://github.com/bitnami/charts/tree/master/bitnami/redis#parameters
 redis:
