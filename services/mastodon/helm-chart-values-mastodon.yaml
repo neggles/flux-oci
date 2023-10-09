@@ -194,6 +194,9 @@ mastodon:
     persistentTimeout: "20"
     # Extra environment variables to pass to the web container
     trustedIPs: []
+    extraEnv:
+      - name: ES_PRESET
+        value: small_cluster
 
   metrics:
     statsd:
