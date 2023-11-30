@@ -11,7 +11,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 # -- What log level to output. Valid levels are 'debug', 'info', 'warn' and 'error'
-logLevel: debug
+logLevel: info
 # Additional arguments to pass in
 # additionalArgs:
 # Any other environment variables:
