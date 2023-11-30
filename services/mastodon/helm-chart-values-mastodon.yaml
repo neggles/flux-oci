@@ -102,22 +102,14 @@ mastodon:
         replicas: 1
         queues:
           - default
+          - mailers
+          - scheduler # Make sure the scheduler queue only exists once and with a worker that has 1 replica.
       - name: push-pull
         concurrency: 15
         replicas: 1
         queues:
           - push
           - pull
-      - name: mailers
-        concurrency: 5
-        replicas: 1
-        queues:
-          - mailers
-      - name: scheduler
-        concurrency: 5
-        replicas: 1
-        queues:
-          - scheduler # Make sure the scheduler queue only exists once and with a worker that has 1 replica.
       - name: ingress
         concurrency: 10
         replicas: 1

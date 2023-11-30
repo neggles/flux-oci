@@ -43,15 +43,7 @@ spec:
       namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
-      name: mastodon-sidekiq-mailers
-      namespace: mastodon
-    - apiVersion: apps/v1
-      kind: Deployment
       name: mastodon-sidekiq-push-pull
-      namespace: mastodon
-    - apiVersion: apps/v1
-      kind: Deployment
-      name: mastodon-sidekiq-scheduler
       namespace: mastodon
 
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
