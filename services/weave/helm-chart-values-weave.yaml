@@ -38,10 +38,10 @@ oidcSecret:
   # clientSecret:
   # issuerURL:
   # redirectURL:
-  additionalKeys:
-    customScopes: openid
-    claimUsername: sub
-    claimGroups: groups
+  # additionalKeys:
+  #   customScopes: openid
+  #   claimUsername: sub
+  #   claimGroups: groups
 
 serviceAccount:
   # -- Specifies whether a service account should be created
