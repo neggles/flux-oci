@@ -104,3 +104,9 @@ $RECYCLE.BIN/
 # local misc and temp
 /misc/
 /temp/
+
+# direnv
+/.envrc*
+!/.envrc.example
+/.env*
+!/.env.example
