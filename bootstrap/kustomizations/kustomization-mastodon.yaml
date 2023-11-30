@@ -33,7 +33,19 @@ spec:
       namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
-      name: mastodon-sidekiq-all-queues
+      name: mastodon-sidekiq-default
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-sidekiq-ingress
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-sidekiq-mailers
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-sidekiq-push-pull
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: mastodon-sidekiq-scheduler
       namespace: mastodon
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
