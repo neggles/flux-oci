@@ -24,3 +24,8 @@ spec:
       kind: HelmRelease
       name: ww-gitops
       namespace: flux-system
+
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: gitops-server-weave-gitops
+      namespace: flux-system

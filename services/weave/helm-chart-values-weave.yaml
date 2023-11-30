@@ -38,6 +38,10 @@ oidcSecret:
   # clientSecret:
   # issuerURL:
   # redirectURL:
+  additionalKeys:
+    customScopes: openid
+    claimUsername: sub
+    claimGroups: groups
 
 serviceAccount:
   # -- Specifies whether a service account should be created
@@ -51,12 +55,12 @@ serviceAccount:
 rbac:
   # -- Specifies whether the clusterRole & binding to the service account should be created
   create: true
+  # -- Limit the type of principal that can be impersonated
+  impersonationResources: ["users", "groups"]
   # -- If non-empty, this limits the resources that the service
   # account can impersonate. This applies to both users and groups, e.g.
   # `['user1@corporation.com', 'user2@corporation.com', 'operations']`
   impersonationResourceNames: []
-  # -- Limit the type of principal that can be impersonated
-  impersonationResources: ["users", "groups"]
   # -- If non-empty, this limits the secrets that can be accessed by
   # the service account to the specified ones, e.g. `['weave-gitops-enterprise-credentials']`
   viewSecretsResourceNames: ["cluster-user-auth", "oidc-auth"]
@@ -116,9 +120,8 @@ service:
 
 ingress:
   enabled: true
-  className: ""
+  className: "traefik"
   annotations:
-    kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt-prod
   hosts:
     - host: gitops.owoci.neggles.dev
