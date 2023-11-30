@@ -27,26 +27,33 @@ spec:
       kind: Deployment
       name: mastodon-web
       namespace: mastodon
+
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-streaming
       namespace: mastodon
+
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-sidekiq-default
+      namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-sidekiq-ingress
+      namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-sidekiq-mailers
+      namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-sidekiq-push-pull
+      namespace: mastodon
     - apiVersion: apps/v1
       kind: Deployment
       name: mastodon-sidekiq-scheduler
       namespace: mastodon
+
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
       name: mastodon
