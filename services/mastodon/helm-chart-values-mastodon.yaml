@@ -275,6 +275,7 @@ elasticsearch:
   master:
     replicaCount: 3
     masterOnly: false
+    heapSize: 1024m
     persistence:
       size: 4Gi
 
