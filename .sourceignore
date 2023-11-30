@@ -13,4 +13,5 @@
 !/certs
 !/cluster
 !/common
+!/rbac
 !/services
