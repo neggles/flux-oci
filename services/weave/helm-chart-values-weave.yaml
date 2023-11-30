@@ -1,21 +1,17 @@
-# Default values for chart.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
-
-# Note: paragraphs starting with `# --` will end up in our manual -
-# see https://github.com/norwoodj/helm-docs
-replicaCount: 1
 image:
   # FIXME check the app name
   repository: ghcr.io/weaveworks/wego-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v0.37.0"
+
+replicaCount: 1
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
 # -- What log level to output. Valid levels are 'debug', 'info', 'warn' and 'error'
-logLevel: info
+logLevel: debug
 # Additional arguments to pass in
 # additionalArgs:
 # Any other environment variables:
