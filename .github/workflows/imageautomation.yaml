@@ -1,0 +1,35 @@
+name: Image Automation PR
+run-name: AutoPR for ${{ github.ref_name }}
+on:
+  push:
+    branches:
+      - "auto/**"
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}-auto
+  cancel-in-progress: false
+
+jobs:
+  open:
+    name: Create PR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Open PR
+        env:
+          ref_name: ${{ github.ref_name }}
+        run: |
+          gh_pr() { gh pr create $* || gh pr edit $* }
+          gh_pr --fill --title "Automatic update for ${ref_name##*/}"

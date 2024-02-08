@@ -30,7 +30,6 @@ metadata:
   name: mastodon
   namespace: mastodon
 spec:
-  suspend: true # disable until tested
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -44,7 +43,7 @@ spec:
       ref:
         branch: main
     push:
-      branch: auto
+      branch: auto/mastodon
     commit:
       author:
         name: owocibot

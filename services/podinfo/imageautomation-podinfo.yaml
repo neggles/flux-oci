@@ -43,7 +43,7 @@ spec:
       ref:
         branch: main
     push:
-      branch: auto
+      branch: auto/podinfo
     commit:
       author:
         name: owocibot
