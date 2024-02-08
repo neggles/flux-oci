@@ -22,3 +22,52 @@ spec:
   policy:
     semver:
       range: v4.2.x
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: mastodon
+  namespace: mastodon
+spec:
+  suspend: true # disable until tested
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+    namespace: flux-system
+  interval: 1h
+  update:
+    strategy: Setters
+    path: ./services/mastodon
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: owocibot
+        email: owocibot@users.noreply.github.com
+      messageTemplate: |
+        Automated image update
+
+        Automation name: {{ .AutomationObject }}
+
+        Files:
+        {{ range $filename, $_ := .Updated.Files -}}
+        - {{ $filename }}
+        {{ end -}}
+
+        Objects:
+        {{ range $resource, $_ := .Updated.Objects -}}
+        - {{ $resource.Kind }} {{ $resource.Name }}
+        {{ end -}}
+
+        Images:
+        {{ range .Updated.Images -}}
+        - {{.}}
+        {{ end -}}
+      signingKey:
+        secretRef:
+          name: git-pgp
+    push: # moved under `git`
+      branch: auto

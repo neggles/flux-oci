@@ -29,3 +29,7 @@ spec:
         trustedIPs: []
       streaming:
         trustedIPs: []
+
+    image:
+      repository: ghcr.io/mastodon/mastodon # {"$imagepolicy": "mastodon:mastodon:name"}
+      tag: v4.2.5 # {"$imagepolicy": "mastodon:mastodon:tag"}
