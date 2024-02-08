@@ -5,6 +5,7 @@ namespace: podinfo
 resources:
   - ../../common
   - helmrelease-podinfo.yaml
+  - imageautomation-podinfo.yaml
 configMapGenerator:
   - name: helm-chart-values-podinfo
     files:
