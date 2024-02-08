@@ -5,6 +5,7 @@ namespace: mastodon
 resources:
   - ../../common
   - helmrelease-mastodon.yaml
+  - imageautomation-mastodon.yaml
   - http-middleware-buffering.yaml
   - sealedsecret-mastodon-postgres-password.yaml
   - sealedsecret-mastodon-redis-password.yaml
