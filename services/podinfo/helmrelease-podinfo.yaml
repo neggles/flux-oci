@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -8,7 +7,6 @@ spec:
   releaseName: podinfo
   interval: 15m
   timeout: 5m
-
   chart:
     spec:
       chart: podinfo
@@ -17,13 +15,11 @@ spec:
         kind: HelmRepository
         name: podinfo
         namespace: flux-system
-
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-podinfo
       valuesKey: values.yaml
-
   values:
     image:
       repository: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:name"}
-      tag: 6.0.3 # {"$imagepolicy": "podinfo:podinfo:tag"}
+      tag: 6.5.4 # {"$imagepolicy": "podinfo:podinfo:tag"}
