@@ -2,10 +2,10 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: mastodon
-  namespace: mastodon
+  name: podinfo
+  namespace: podinfo
 spec:
-  image: ghcr.io/mastodon/mastodon
+  image: ghcr.io/stefanprodan/podinfo
   provider: generic
   interval: 1h
   timeout: 5m
@@ -14,21 +14,21 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: mastodon
-  namespace: mastodon
+  name: podinfo
+  namespace: podinfo
 spec:
   imageRepositoryRef:
-    name: mastodon
+    name: podinfo
   policy:
     semver:
-      range: v4.2.x
+      range: 6.x.x
 
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: mastodon
-  namespace: mastodon
+  name: podinfo
+  namespace: podinfo
 spec:
   suspend: true # disable until tested
   sourceRef:
@@ -38,7 +38,7 @@ spec:
   interval: 1h
   update:
     strategy: Setters
-    path: ./services/mastodon
+    path: ./services/podinfo
   git:
     checkout:
       ref:

@@ -22,3 +22,7 @@ spec:
     - kind: ConfigMap
       name: helm-chart-values-podinfo
       valuesKey: values.yaml
+
+  values:
+    image: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:name"}
+    tag: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:tag"}
