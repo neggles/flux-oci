@@ -1,0 +1,24 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: mastodon
+  namespace: mastodon
+spec:
+  image: ghcr.io/mastodon/mastodon
+  provider: generic
+  interval: 1h
+  timeout: 5m
+
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: mastodon
+  namespace: mastodon
+spec:
+  imageRepositoryRef:
+    name: mastodon
+  policy:
+    semver:
+      range: v4.2.x
