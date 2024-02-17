@@ -37,8 +37,8 @@ jobs:
           submodules: recursive
           ref: ${{ env.PR_REF_NAME }}
 
-      - uses: peter-evans/create-pull-request@v6
-        with:
-          author: "owocibot <owocibot@users.noreply.github.com>"
-          branch: ${{ env.PR_REF_NAME }}
-          base: main
+      - name: Create PR
+        id: create-pr
+        run: |
+          PR_REF_NAME="${PR_REF_NAME##*/}"
+          gh pr create --fill --title "Auto-update for $PR_REF_NAME"
