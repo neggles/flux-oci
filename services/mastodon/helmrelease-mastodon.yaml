@@ -1,4 +1,3 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -8,7 +7,6 @@ spec:
   releaseName: mastodon
   interval: 15m
   timeout: 5m
-
   chart:
     spec:
       chart: .
@@ -17,19 +15,16 @@ spec:
         kind: GitRepository
         name: mastodon
         namespace: flux-system
-
   valuesFrom:
     - kind: ConfigMap
       name: helm-chart-values-mastodon
       valuesKey: values.yaml
-
   values:
     mastodon:
       web:
         trustedIPs: []
       streaming:
         trustedIPs: []
-
     image:
       repository: ghcr.io/mastodon/mastodon # {"$imagepolicy": "mastodon:mastodon:name"}
-      tag: v4.2.5 # {"$imagepolicy": "mastodon:mastodon:tag"}
+      tag: v4.2.7 # {"$imagepolicy": "mastodon:mastodon:tag"}
