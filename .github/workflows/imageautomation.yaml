@@ -1,5 +1,5 @@
 name: Image Automation PR
-run-name: AutoPR for ${{ github.ref_name }}
+run-name: AutoPR for ${{ github.event_name == 'workflow_dispatch' && inputs.branch || github.ref_name }}
 on:
   push:
     branches:
