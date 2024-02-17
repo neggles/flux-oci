@@ -47,11 +47,16 @@ jobs:
           git config --global user.name 'owocibot'
           git config --global user.email owocibot@users.noreply.github.com
 
+      - name: Fetch the base branch
+        id: pull
+        run: |
+          git fetch origin main
+
       - name: Create PR
         id: create
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           APP_NAME=$(echo ${PR_REF_NAME} | cut -f2- -d'/');
-          function gh_pr() { (gh pr create --fill --title "$1") || (gh pr edit --title "$1") };
+          function gh_pr() { (gh pr create --head $(git branch --show-current) --fill --title "$1") || (gh pr edit --title "$1") };
           gh_pr "Auto-update for $APP_NAME"
