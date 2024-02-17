@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - "auto/**"
+    paths:
+      - "services/**"
+      - "cluster/**"
+      - "bootstrap/**"
+
   workflow_dispatch:
     inputs:
       branch:
@@ -36,11 +41,17 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Configure git
+        id: configure
+        run: |
+          git config --global user.name 'owocibot'
+          git config --global user.email owocibot@users.noreply.github.com
+
       - name: Create PR
-        id: create-pr
+        id: create
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           APP_NAME=$(echo ${PR_REF_NAME} | cut -f2- -d'/');
-          function gh_pr() { (gh pr create --fill --title "$1") || (gh pr edit --fill --title "$1") };
-          gh_pr "Auto-update for $PR_REF_NAME"
+          function gh_pr() { (gh pr create --fill --title "$1") || (gh pr edit --title "$1") };
+          gh_pr "Auto-update for $APP_NAME"
