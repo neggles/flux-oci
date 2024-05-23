@@ -22,4 +22,4 @@ spec:
   values:
     image:
       repository: ghcr.io/stefanprodan/podinfo # {"$imagepolicy": "podinfo:podinfo:name"}
-      tag: 6.6.2 # {"$imagepolicy": "podinfo:podinfo:tag"}
+      tag: 6.6.3 # {"$imagepolicy": "podinfo:podinfo:tag"}
