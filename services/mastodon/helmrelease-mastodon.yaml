@@ -27,4 +27,4 @@ spec:
         trustedIPs: []
     image:
       repository: ghcr.io/mastodon/mastodon # {"$imagepolicy": "mastodon:mastodon:name"}
-      tag: v4.2.8 # {"$imagepolicy": "mastodon:mastodon:tag"}
+      tag: v4.2.9 # {"$imagepolicy": "mastodon:mastodon:tag"}
